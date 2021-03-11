@@ -18,32 +18,22 @@ const App = ()=>{
   // starts. a second parameter can be counter as an example
   // it will only run when counter is updated.
   let response;
-  useEffect(() =>{
-    if(query!==''){
-      const getRecipes = async ()=>{
-        response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
-        )
-        
-        
-      
-      const data = await response.json();
-      setRecipes(data.hits);
-      console.log(data.hits);
-      }
-      getRecipes();
-      
-    };
-    
-  },[query]);
 
-    const updateSearch = ev =>{
-      setSearch(ev.target.value);
-    }
-    const getSearch = ev=>{
-      ev.preventDefault();
-      setQuery(search);
-      setSearch('');
-    }
+  const getRecipes = async ()=>{
+    response = await fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`
+    )
+  const data = await response.json();
+    setRecipes(data.hits);
+  }
+
+  const updateSearch = ev =>{
+    setSearch(ev.target.value);
+  }
+  const getSearch = ev=>{
+    ev.preventDefault();
+    getRecipes();
+    setSearch('');
+  }
   return(
     <div className="App">
       <h1 className="title">Search for a recipe</h1>
