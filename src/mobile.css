@@ -1,0 +1,8 @@
+@media only screen and (max-width: 600px) {
+  .search-form.input-group {
+    width: 70%;
+  }
+  .Recipe.card {
+    width: 55% !important;
+  }
+}

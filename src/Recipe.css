@@ -1,0 +1,8 @@
+.Recipe.card {
+  margin-bottom: 2rem;
+  width: 45%;
+}
+
+ol li {
+  text-align: left;
+}
