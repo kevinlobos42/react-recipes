@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React,{useState} from "react";
 import './App.css';
 import './mobile.css';
 import Recipe from './Recipe';
@@ -11,7 +11,6 @@ const App = ()=>{
 
   const [search,setSearch] = useState('');
   const [recipes,setRecipes] = useState([]);
-  const [query, setQuery] = useState('');
   // useEffect runs when application updates
   // takes a second parameter which can be empty
   // meaning it only runs useEffect when the application
