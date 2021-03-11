@@ -17,20 +17,23 @@ const App = ()=>{
   // meaning it only runs useEffect when the application
   // starts. a second parameter can be counter as an example
   // it will only run when counter is updated.
+  let response;
   useEffect(() =>{
     if(query!==''){
       const getRecipes = async ()=>{
-        const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+        response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
         )
-      };
-    }
+        
+      
+      const data = await response.json();
+      setRecipes(data.hits);
+      console.log(data.hits);
+      }
+      
+    };
+    
   },[query]);
 
- 
-    const data = await response.json();
-    setRecipes(data.hits);
-    console.log(data.hits);
-    }
     const updateSearch = ev =>{
       setSearch(ev.target.value);
     }
@@ -73,6 +76,6 @@ const App = ()=>{
       ))}
     </div>
   );
-}
 
+      }
 export default App;
