@@ -11,7 +11,7 @@ const Recipe= ({title,calories,image,ingredients})=>{
           <Card.Body>
             <Card.Title className="title-recipe">{title}</Card.Title>
             <hr />
-            <Card.Text>
+            <Card.Text className="recipe-ingredients">
               <ol>
                 {ingredients.map(i=>(
                   <li>{i.text}</li>
